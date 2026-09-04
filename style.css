@@ -142,6 +142,14 @@ header .logo {
 }
 
 
+
+header .logo img {
+    margin-top: 5px;
+    max-width: 140px;
+}
+
+
+
 ul.navlist {
     display: flex;
 }
@@ -3228,5 +3236,165 @@ body.cursor-click .cursor-follower {
     .cursor-particle,
     .cursor-ripple {
         display: none !important;
+    }
+}
+
+
+
+/* =========================================================
+   PREMIUM WATER RIPPLE EFFECT
+========================================================= */
+
+.water-ripple {
+    position: fixed;
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 999994;
+
+    transform: translate(-50%, -50%);
+
+    border: 1px solid rgba(168, 85, 247, .65);
+
+    box-shadow:
+        0 0 8px rgba(168, 85, 247, .35),
+        inset 0 0 8px rgba(192, 38, 211, .15);
+
+    animation: waterRipple 1s cubic-bezier(.2,.7,.3,1) forwards;
+}
+
+
+.water-ripple::before,
+.water-ripple::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(192, 38, 211, .35);
+
+    transform: translate(-50%, -50%);
+
+    animation: waterWave 1s ease-out forwards;
+}
+
+
+.water-ripple::after {
+    border-color: rgba(79, 70, 229, .25);
+
+    animation-delay: .12s;
+}
+
+
+@keyframes waterRipple {
+
+    0% {
+        width: 10px;
+        height: 10px;
+
+        opacity: .9;
+
+        filter: blur(0);
+    }
+
+    40% {
+        opacity: .6;
+    }
+
+    100% {
+        width: 130px;
+        height: 130px;
+
+        opacity: 0;
+
+        filter: blur(1px);
+    }
+}
+
+
+@keyframes waterWave {
+
+    0% {
+        width: 10px;
+        height: 10px;
+
+        opacity: .8;
+    }
+
+    100% {
+        width: 100px;
+        height: 100px;
+
+        opacity: 0;
+    }
+}
+
+
+/* Small liquid drops */
+
+.water-drop {
+    position: fixed;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 999993;
+
+    background: #A855F7;
+
+    box-shadow:
+        0 0 8px #A855F7,
+        0 0 15px #C026D3;
+
+    animation: waterDrop .7s ease-out forwards;
+}
+
+
+@keyframes waterDrop {
+
+    0% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(
+                calc(-50% + var(--drop-x)),
+                calc(-50% + var(--drop-y))
+            )
+            scale(.2);
+    }
+}
+
+
+/* Mobile par effect disable */
+
+@media (max-width: 768px) {
+
+    .water-ripple,
+    .water-drop {
+        display: none;
     }
 }
