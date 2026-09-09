@@ -522,3 +522,10 @@ if (cursor && follower) {
     }
 
 }
+
+
+// form validaction
+
+const form = document.getElementById("myForm");
+
+form.addEventListener("submit")

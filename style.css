@@ -1364,7 +1364,7 @@ ul.navlist {
 
     border-radius: 10px;
 
-    padding: 1rem 2.5rem;
+       padding: 0rem 2.5rem;
 
     z-index: 1;
 }
@@ -2282,7 +2282,7 @@ footer p {
 
 
     .proposal img {
-        width: 45vw;
+       width: 75vw;
     }
 
 
@@ -3396,5 +3396,13 @@ body.cursor-click .cursor-follower {
     .water-ripple,
     .water-drop {
         display: none;
+    };
+
+   
+}
+
+@media(min-width:320px) and (max-width:667px){
+     .services .text-box h3{
+        font-size: 22px;
     }
 }
